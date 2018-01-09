@@ -5,6 +5,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.CharBuffer;
 
+// 可将ByteBuffer转成其他类型的Buffer
+// 书上的例子
 public class BufferCharView {
 
     public static void main(String[] args) {

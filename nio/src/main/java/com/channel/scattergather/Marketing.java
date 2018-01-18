@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * 汇聚流(gather)，从多个缓冲区汇聚数据
+ */
 public class Marketing {
 
     private static final String DEMOGRAPHIC = "blahblah.txt";

@@ -1,6 +1,5 @@
-package com.channel.memory_mapped;
+package com.channel.memory_mapped_file;
 
-import java.io.FileOutputStream;
 import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -13,7 +12,7 @@ public class MemoryMappedBasic {
         RandomAccessFile randomAccessFile = new RandomAccessFile(DEMOGRAPHIC, "rw");
         FileChannel fileChannel = randomAccessFile.getChannel();
         System.out.println(fileChannel.size());
-//        MappedByteBuffer buf = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, fileChannel.size());
+//        MappedByteBuffer buf = fileChannel.map(ChannelTransfer.MapMode.READ_WRITE, 0, fileChannel.size());
         MappedByteBuffer buf = fileChannel.map(FileChannel.MapMode.PRIVATE, 0, fileChannel.size());
 
         System.out.println("是否全部被载入内存:" + buf.isLoaded());

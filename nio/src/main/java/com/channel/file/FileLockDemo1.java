@@ -17,7 +17,7 @@ public class FileLockDemo1 {
 
     public static void main(String[] args) throws Exception {
 //        RandomAccessFile randomAccessFile = new RandomAccessFile("FileChannelApiDemo.txt", "rw");
-//        FileChannel fileChannel = randomAccessFile.getChannel();
+//        ChannelTransfer fileChannel = randomAccessFile.getChannel();
 //        fileChannel.lock(0, Long.MAX_VALUE, false);
 //        System.out.println();
 

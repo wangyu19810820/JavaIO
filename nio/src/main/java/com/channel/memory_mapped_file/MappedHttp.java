@@ -1,4 +1,4 @@
-package com.channel.memory_mapped;
+package com.channel.memory_mapped_file;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -28,6 +28,7 @@ public class ElementViewDemo {
         byteBuffer.putChar('I');
         System.out.println(Arrays.toString(byteBuffer.array()));
 
+        // 第六位已经是整个缓冲区最后一个字节，getChar需要两个字节，故跑BufferUnderflowException
         byteBuffer.position(6);
         System.out.println(byteBuffer.getChar());
     }

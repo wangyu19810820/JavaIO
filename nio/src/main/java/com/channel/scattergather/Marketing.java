@@ -20,6 +20,7 @@ public class Marketing {
             reps = Integer.parseInt(args[0]);
         }
         FileOutputStream fos = new FileOutputStream(DEMOGRAPHIC);
+        // FileChannel实现了GatheringByteChannel, ScatteringByteChannel
         GatheringByteChannel gatherChannel = fos.getChannel();
         ByteBuffer [] bs = utterBS (reps);
         while (gatherChannel.write(bs) > 0) {

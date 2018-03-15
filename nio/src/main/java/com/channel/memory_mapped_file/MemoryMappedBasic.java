@@ -4,6 +4,7 @@ import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
+// 内存映射的最简单例子
 public class MemoryMappedBasic {
 
     private static final String DEMOGRAPHIC = "blahblah.txt";

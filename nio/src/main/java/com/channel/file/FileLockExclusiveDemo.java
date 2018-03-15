@@ -13,12 +13,17 @@ public class FileLockExclusiveDemo {
     public static void main(String[] args) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile("FileChannelApiDemo.txt", "rw");
         FileChannel fileChannel = randomAccessFile.getChannel();
-        FileLock lock = fileChannel.tryLock(0, Long.MAX_VALUE, false);
-//        FileLock lock = fileChannel.lock(0, Long.MAX_VALUE, false);
+//        FileLock lock = fileChannel.tryLock(0, Long.MAX_VALUE, false);
+        FileLock lock = fileChannel.lock(0, Long.MAX_VALUE, false);
         if (lock != null) {
-            System.out.println("获得锁");
+            System.out.println("获得锁" + System.currentTimeMillis());
+            try {
+                Thread.sleep(10000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             lock.release();
-            System.out.println("释放锁");
+            System.out.println("释放锁" + System.currentTimeMillis());
         } else {
             System.out.println("锁为null");
         }

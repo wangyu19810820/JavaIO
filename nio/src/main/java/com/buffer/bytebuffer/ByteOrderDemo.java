@@ -14,9 +14,21 @@ public class ByteOrderDemo {
         System.out.println("本地字节顺序：" + ByteOrder.nativeOrder());
         CharBuffer charBuffer = CharBuffer.allocate(10);
         System.out.println("JVM的CharBuffer字节顺序：" + charBuffer.order());
-        ByteBuffer byteBuffer = ByteBuffer.allocate(10);
+
+        ByteBuffer byteBuffer = ByteBuffer.wrap(new byte[]{1, 2, 3, 4, 5});
         System.out.println("ByteBuffer默认字节顺序：" + byteBuffer.order());
+        printBuffer(byteBuffer);
         byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
         System.out.println("设定了ByteBuffer字节顺序为小端字节顺序后：" + byteBuffer.order());
+        printBuffer(byteBuffer);
+    }
+
+    public static void printBuffer(ByteBuffer buffer) {
+        buffer.rewind();
+        while (buffer.hasRemaining()) {
+            System.out.print(buffer.get());
+            System.out.print(' ');
+        }
+        System.out.println();
     }
 }

@@ -18,4 +18,5 @@ public class FileLockShareDemo {
         lock.release();
         System.out.println("释放锁");
     }
+
 }

@@ -2,6 +2,7 @@ package com.channel.memory_mapped_file.channel_to_channel;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
@@ -15,6 +16,8 @@ public class ChannelTransfer {
 
     public static void main(String[] args) throws Exception {
         String[] fileNames = new String[]{"blahblah.txt", "FileChannelApiDemo.txt"};
+        FileOutputStream fos = new FileOutputStream(new File("result.txt"));
+//        catFiles(fileNames, Channels.newChannel(fos));
         catFiles(fileNames, Channels.newChannel(System.out));
     }
 

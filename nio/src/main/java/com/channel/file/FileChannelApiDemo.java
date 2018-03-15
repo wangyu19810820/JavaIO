@@ -9,7 +9,8 @@ import java.nio.channels.FileChannel;
 public class FileChannelApiDemo {
 
     public static void main(String[] args) throws Exception {
-        readEnd();
+//        readEnd();
+        truncate();
     }
 
     private static void readEnd() throws Exception {

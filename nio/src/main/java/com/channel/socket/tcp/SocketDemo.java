@@ -19,7 +19,7 @@ import static java.lang.Thread.sleep;
 public class SocketDemo {
 
     public static void main(String[] args) throws Exception {
-        connect2();
+        connect1();
     }
 
     // 通过传统方式连接
@@ -59,11 +59,11 @@ public class SocketDemo {
         }
 //        System.out.println(Arrays.toString(byteBuffer.array()));
         byteBuffer.flip();
-//        while (byteBuffer.hasRemaining()) {
-//            System.out.print((char)byteBuffer.get());
-//        }
-//        System.out.println();
+        while (byteBuffer.hasRemaining()) {
+            System.out.print((char)byteBuffer.get());
+        }
+        System.out.println();
 
-        System.out.println(new String(byteBuffer.array(), 0, byteBuffer.limit(), "UTF-8"));
+//        System.out.println(new String(byteBuffer.array(), 0, byteBuffer.limit(), "UTF-8"));
     }
 }

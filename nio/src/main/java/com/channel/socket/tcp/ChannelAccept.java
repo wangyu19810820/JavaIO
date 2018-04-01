@@ -35,6 +35,9 @@ public class ChannelAccept {
                 System.out.println("Incoming connection from: " + sc.socket().getRemoteSocketAddress());
                 buffer.rewind();
                 sc.write(buffer);
+                ByteBuffer b1 = ByteBuffer.wrap("abcdefghijklmnopqrstuvwxyz".getBytes());
+                b1.limit(4);
+                sc.write(b1);
                 sc.close();
             }
         }

@@ -99,7 +99,7 @@ class WorkerThread extends Thread {
 
     synchronized void serviceChannel(SelectionKey key) {
         this.key = key;
-        // 取消SelectionKey的读操作的就绪状态
+        // 取消SelectionKey的读操作响应
         key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
         this.notify();
     }

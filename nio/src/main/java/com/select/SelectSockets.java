@@ -9,7 +9,7 @@ import java.util.Iterator;
 // 服务器端Socket
 // 用选择器获取客户端Socket接入
 // 用选择器获取读取就绪Socket，并将相同内容写回客户端
-// 没有取消选择器的读就绪状态，具体写法可参考SelectSocketsThreadPool
+// 没有取消SelectionKey的读操作响应代码，具体写法可参考SelectSocketsThreadPool
 public class SelectSockets {
 
     public static int PORT_NUMBER = 1234;
@@ -42,15 +42,20 @@ public class SelectSockets {
             Iterator it = selector.selectedKeys().iterator();
             while (it.hasNext()) {
                 SelectionKey key = (SelectionKey)it.next();
+                // 接入新客户端
                 if (key.isAcceptable()) {
                     ServerSocketChannel server = (ServerSocketChannel)key.channel();
                     SocketChannel channel = server.accept();
                     registerChannel(selector, channel, SelectionKey.OP_READ);
                     sayHello(channel);
                 }
+
+                // 从客户端读数据，并写回客户端
                 if (key.isReadable()) {
                     readDataFromSocket(key);
                 }
+
+                // 从就绪集合中移除，如果下次就绪还会被重新选中，如果下次未就绪则不在选中Set中
                 it.remove();
             }
         }
